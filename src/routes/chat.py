@@ -4,9 +4,10 @@ import google.generativeai as genai
 
 chat_bp = Blueprint("chat_bp", __name__)
 
+# IMPORTANT: API key should be set as an environment variable GEMINI_API_KEY
 API_KEY = os.environ.get("GEMINI_API_KEY")
 
-model = None 
+model = None # Initialize model as None
 
 if API_KEY:
     try:
@@ -14,6 +15,7 @@ if API_KEY:
         model = genai.GenerativeModel("gemini-1.5-flash-latest")
     except Exception as e:
         print(f"Error configuring Gemini API: {e}. Please ensure GEMINI_API_KEY is set correctly.")
+        # model remains None, will be handled in the route
 else:
     print("GEMINI_API_KEY environment variable not found. The application will not be able to connect to Gemini API.")
 

@@ -3,19 +3,19 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
-	background-color: #121212;
+	background-color: #121212; /* Dark background */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	color: #e0e0e0;
+	color: #e0e0e0; /* Light text for dark background */
 }
 
 .chat-container {
 	width: 100%;
-	max-width: 800px;
-	height: 90vh;
-	max-height: 700px;
+	max-width: 1000px;
+	height: 95vh;
+	max-height: 850px;
 	background-color: #1e1e1e;
 	border-radius: 8px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -172,4 +172,70 @@ body {
 
 .message.bot pre + p {
 	margin-top: 10px;
+}
+
+.code-block-container {
+	position: relative;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.message.bot .code-block-container pre {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.copy-code-button {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	padding: 5px 10px;
+	background-color: #4a4a4a;
+	color: #d0d0d0;
+	border: 1px solid #5f6368;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 0.8em;
+	font-family: 'Open Sans', sans-serif;
+	opacity: 0.7;
+	transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.code-block-container:hover .copy-code-button {
+	opacity: 1;
+}
+
+.copy-code-button:hover {
+	background-color: #5f6368;
+}
+
+.copy-code-button:active {
+	background-color: #3c4043;
+}
+
+.message.bot .code-block-container pre[class*='language-'] {
+	padding: 1em;
+	border-radius: 0.3em;
+}
+
+.message.bot .code-block-container code[class*='language-'],
+.message.bot .code-block-container pre[class*='language-'] code {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
